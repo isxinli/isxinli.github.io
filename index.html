@@ -44,20 +44,7 @@
 
 	</head>
 	<body>
-		<%
-    Integer hitsCount = 
-      (Integer)application.getAttribute("hitCounter");
-    if( hitsCount ==null || hitsCount == 0 ){
-       /* 第一次访问 */
-       out.println("欢迎访问菜鸟教程!");
-       hitsCount = 1;
-    }else{
-       /* 返回访问值 */
-       out.println("欢迎再次访问菜鸟教程!");
-       hitsCount += 1;
-    }
-    application.setAttribute("hitCounter", hitsCount);
-%>
+		
 	<div id="colorlib-page">
 		<div class="container-wrap">
 		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar"><i></i></a>
@@ -84,7 +71,23 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </span> <!-- <span>Demo Images: <a href="#" target="_blank">Unsplash.com</a></span --></small></p>
 				
 			</div>
-			<div><p><%= hitsCount%>visits.</p></div>
+			<div>
+				<%
+    Integer hitsCount = 
+      (Integer)application.getAttribute("hitCounter");
+    if( hitsCount ==null || hitsCount == 0 ){
+       /* 第一次访问 */
+       out.println("欢迎访问菜鸟教程!");
+       hitsCount = 1;
+    }else{
+       /* 返回访问值 */
+       out.println("欢迎再次访问菜鸟教程!");
+       hitsCount += 1;
+    }
+    application.setAttribute("hitCounter", hitsCount);
+%>
+				<p><%= hitsCount%>visits.</p>
+			</div>
 
 		</aside>
 
